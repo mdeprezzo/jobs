@@ -2,11 +2,9 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
-import {
- DeckScreen,
- ReviewScreen,
- SettingsScreen
-} from './screens';
+import DeckScreen from './screens/DeckScreen';
+import ReviewScreen from './screens/ReviewScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 export const MainNavigator = StackNavigator({
  welcome: { screen: WelcomeScreen },

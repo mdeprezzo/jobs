@@ -27,4 +27,4 @@ class ReviewScreen extends Component {
  }	
 }
 
-export { ReviewScreen };
+export default ReviewScreen;

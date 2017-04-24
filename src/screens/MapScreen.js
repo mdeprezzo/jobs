@@ -26,6 +26,7 @@ class MapScreen extends Component {
  }
 
  renderJobsMarker() {
+  console.log(this.props.results.length);
   return this.props.results.map((job, i) => {
    const { latitude, longitude } = job;
     
