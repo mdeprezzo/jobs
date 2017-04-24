@@ -10,6 +10,9 @@
     "react": "16.0.0-alpha.6",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-16.0.0.tar.gz",
     "react-native-elements": "^0.11.1",
-    "react-navigation": "^1.0.0-beta.8"
+    "react-navigation": "^1.0.0-beta.8",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   }
 }

@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import AuthScreen from './screens/AuthScreen';
 import { 
- AuthScreen, 
  WelcomeScreen,
  MapScreen,
  DeckScreen,
@@ -11,7 +11,7 @@ import {
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export const MainNavigator = TabNavigator({
+export const MainNavigator = StackNavigator({
  welcome: { screen: WelcomeScreen },
  auth: { screen: AuthScreen },
  main: {
@@ -29,11 +29,8 @@ export const MainNavigator = TabNavigator({
   })
  }
 }, {
- tabBarPosition: 'bottom',
- lazyLoad: true,
- tabBarOptions: {
-  style: {
-   width: SCREEN_WIDTH
-  }
+ initialRouteName: 'welcome',  
+ navigationOptions: {
+  headerVisible: false 
  }
 });

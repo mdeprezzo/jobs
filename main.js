@@ -1,14 +1,20 @@
 import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Provider } from 'react-redux';
+import store from './src/store';
 import { MainNavigator } from './src/MainNavigator';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-       <MainNavigator />
-      </View>
+      <Provider store={store}>
+       <View style={styles.container}>
+        <MainNavigator />
+       </View>
+      </Provider>
     );
   }
 }
