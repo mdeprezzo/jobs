@@ -10,11 +10,9 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-       <View style={styles.container}>
-        <MainNavigator />
-       </View>
-      </Provider>
+     <Provider store={store}>
+      <MainNavigator />
+     </Provider>
     );
   }
 }

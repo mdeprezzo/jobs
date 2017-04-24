@@ -1,15 +1,12 @@
-import { Dimensions } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import AuthScreen from './screens/AuthScreen';
-import { 
- WelcomeScreen,
- MapScreen,
+import WelcomeScreen from './screens/WelcomeScreen';
+import MapScreen from './screens/MapScreen';
+import {
  DeckScreen,
  ReviewScreen,
  SettingsScreen
 } from './screens';
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export const MainNavigator = StackNavigator({
  welcome: { screen: WelcomeScreen },
