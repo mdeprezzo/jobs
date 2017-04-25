@@ -7,6 +7,10 @@ import Swipe from '../components/Swipe';
 import * as actions from '../actions';
 
 class DeckScreen extends Component {
+ static navigationOptions = {
+  tabBarLabel: 'Jobs' 
+ };
+  
  renderCard(item) {
   const initialRegion = {
    longitude: item.longitude,
@@ -23,8 +27,7 @@ class DeckScreen extends Component {
       style={{ flex: 1 }}
       cacheEnabled={Platform.OS === 'android'}
       initialRegion={initialRegion}
-     >
-     </MapView>
+     />
     </View> 
     <View style={styles.detailWrapperStyle}>
      <Text>{item.company}</Text>
@@ -39,6 +42,13 @@ class DeckScreen extends Component {
  renderNoMoreCards() {
   return (
    <Card title="No more jobs">
+    <Button
+     onPress={() => this.props.navigation.navigate('map')}
+     backgroundColor="#03A9F4"
+     icon={{ name: 'my-location' }} 
+     title="Back To Map"
+     large
+    />
    </Card>
   ); 
  }
@@ -49,7 +59,7 @@ class DeckScreen extends Component {
     <Swipe 
      data={this.props.results}
      renderCard={this.renderCard}
-     renderNoMoreCards={this.renderNoMoreCards}
+     renderNoMoreCards={this.renderNoMoreCards.bind(this)}
      onSwipeRight={item => this.props.likeJob(item, () => {
       ToastAndroid.showWithGravity(
        'Job added to likedJobs!', 

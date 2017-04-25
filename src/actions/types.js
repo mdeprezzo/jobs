@@ -6,4 +6,4 @@ export const USER_ALREADY_NOT_LOGGED_IN = 'USER_ALREADY_NOT_LOGGED_IN';
 
 export const FETCH_JOBS = 'FETCH_JOBS';
 export const LIKE_JOB = 'LIKE_JOB';
-export const CLEAR_ALL_JOBS = 'CLEAR_ALL_JOBS';
+export const CLEAR_LIKED_JOBS = 'CLEAR_LIKED_JOBS';

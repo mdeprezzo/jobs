@@ -15,10 +15,10 @@ export const MainNavigator = StackNavigator({
    map: { screen: MapScreen },
    deck: { screen: DeckScreen },
    review: {
-   	screen: StackNavigator({
+    screen: StackNavigator({
      review: { screen: ReviewScreen },
      settings: { screen: SettingsScreen }
-   	})
+    })
    }
   }, { 
    tabBarPosition: 'bottom'
@@ -27,7 +27,7 @@ export const MainNavigator = StackNavigator({
 }, {
  initialRouteName: 'welcome',  
  cardStyle: {
-  paddingTop: Constants.statusBarHeight
+  marginTop: Constants.statusBarHeight
  },
  navigationOptions: {
   headerVisible: false 

@@ -20,7 +20,7 @@ class ReviewScreen extends Component {
  }
 
  renderLikedJobs() {
-  return this.props.likes.map((item, i) => {
+  return this.props.likes.map(item => {
    const { 
     url, jobkey, company, longitude, 
     latitude, formattedRelativeTime, jobtitle
@@ -65,6 +65,7 @@ class ReviewScreen extends Component {
 
 const styles = {
  detailWrapperStyle: {
+  marginTop: 10,
   marginBottom: 10,
   flexDirection: 'row',
   justifyContent: 'space-around'

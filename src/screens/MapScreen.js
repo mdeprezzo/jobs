@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View } from 'react-native';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
@@ -26,7 +26,6 @@ class MapScreen extends Component {
  }
 
  renderJobsMarker() {
-  console.log(this.props.results.length);
   return this.props.results.map((job, i) => {
    const { latitude, longitude } = job;
     
