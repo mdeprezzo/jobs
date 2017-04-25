@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text, Platform, ToastAndroid } from 'react-native';
 import { connect } from 'react-redux';
-import { MapView, Constants } from 'expo';
+import { MapView } from 'expo';
 import { Card, Button } from 'react-native-elements';
 import Swipe from '../components/Swipe';
+import * as actions from '../actions';
 
 class DeckScreen extends Component {
  renderCard(item) {
@@ -20,7 +21,7 @@ class DeckScreen extends Component {
      <MapView
       scrollEnabled={false}
       style={{ flex: 1 }}
-      cacheEnabled={Platform.OS === 'android' ? true : false}
+      cacheEnabled={Platform.OS === 'android'}
       initialRegion={initialRegion}
      >
      </MapView>
@@ -44,11 +45,17 @@ class DeckScreen extends Component {
 
  render() {
   return (
-   <View style={styles.containerStyle}>
+   <View>
     <Swipe 
      data={this.props.results}
      renderCard={this.renderCard}
      renderNoMoreCards={this.renderNoMoreCards}
+     onSwipeRight={item => this.props.likeJob(item, () => {
+      ToastAndroid.showWithGravity(
+       'Job added to likedJobs!', 
+       ToastAndroid.SHORT, ToastAndroid.BOTTOM
+      );
+     })}
      keyProp="jobkey"
     />
    </View>
@@ -57,9 +64,6 @@ class DeckScreen extends Component {
 }
 
 const styles = {
- containerStyle: {
-  paddingTop: Constants.statusBarHeight
- },
  detailWrapperStyle: {
   flexDirection: 'row',
   justifyContent: 'space-around',
@@ -73,4 +77,4 @@ const mapStateToProps = state => {
  return { results };
 };
 
-export default connect(mapStateToProps, null)(DeckScreen);
+export default connect(mapStateToProps, actions)(DeckScreen);

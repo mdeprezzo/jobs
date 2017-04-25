@@ -1,3 +1,4 @@
+import { Constants } from 'expo';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -25,6 +26,9 @@ export const MainNavigator = StackNavigator({
  }
 }, {
  initialRouteName: 'welcome',  
+ cardStyle: {
+  paddingTop: Constants.statusBarHeight
+ },
  navigationOptions: {
   headerVisible: false 
  }
