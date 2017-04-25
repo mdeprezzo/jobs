@@ -1,18 +1,31 @@
-import Expo from 'expo';
+import Expo, { Notifications } from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store';
 import { MainNavigator } from './src/MainNavigator';
+import registerForNotifications from './services/notifications';
 
 class App extends React.Component {
-  render() {
-    return (
-     <Provider store={store}>
-      <MainNavigator />
-     </Provider>
-    );
-  }
+ componentDidMount() {
+  registerForNotifications();		
+
+  Notifications.addListener((notification) => {
+   const { data: { text }, origin } = notification;
+	
+   if (origin === 'received' && text) {	
+    Alert.alert('New Push Notification', text, [{ text: 'OK' }]);  
+   }    
+  });
+ }
+
+ render() {
+  return (
+   <Provider store={store}>
+    <MainNavigator />
+   </Provider>
+  );
+ }
 }
 
 Expo.registerRootComponent(App);
