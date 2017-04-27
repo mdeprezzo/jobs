@@ -30,6 +30,6 @@ export const MainNavigator = StackNavigator({
   marginTop: Constants.statusBarHeight
  },
  navigationOptions: {
-  headerVisible: false 
+  header: null 
  }
 });
